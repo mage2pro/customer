@@ -21,7 +21,7 @@
 			-->
 			<resource>Dfe_Customer::config</resource>
 			<group
-				id='format'
+				id='common'
 				translate='label'
 				type='text'
 				sortOrder='1'
@@ -29,7 +29,7 @@
 				showInWebsite='1'
 				showInStore='1'
 			>
-				<label>Format</label>
+				<label>Common</label>
 				<field
 					id='enable'
 					translate='label'
@@ -43,20 +43,29 @@
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
 					<comment><![CDATA[]]></comment>
 				</field>
+			</group>
+			<group
+				id='address'
+				translate='label'
+				type='text'
+				sortOrder='2'
+				showInDefault='1'
+				showInWebsite='1'
+				showInStore='1'
+			>
+				<label>Address</label>
 				<field
-					id='items'
+					id='telephone'
 					translate='label'
-					type='Df\Framework\Data\Form\Element\ArrayT'
-					dfItemType='Dfe\CurrencyFormat\FormElement'
-					sortOrder='2'
+					type='select'
+					sortOrder='1'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label></label>
+					<label>Telephone</label>
+					<source_model>Magento\Config\Model\Config\Source\Nooptreq</source_model>
 					<comment><![CDATA[]]></comment>
-					<backend_model>Df\Config\Backend\Serialized</backend_model>
-					<depends><field id='enable'>1</field></depends>
 				</field>
 			</group>
 		</section>

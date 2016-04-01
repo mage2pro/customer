@@ -1,0 +1,22 @@
+<?php
+namespace Dfe\Customer\Settings;
+use Magento\Framework\App\ScopeInterface;
+class Address extends \Df\Core\Settings {
+	/**
+	 * 2016-04-01
+	 * «Mage2.PRO» → «Customer» → «Address» → «Telephone»
+	 * @param null|string|int|ScopeInterface $scope [optional]
+	 * @return string
+	 */
+	public function telephone($scope = null) {return $this->v(__FUNCTION__, $scope);}
+
+	/**
+	 * @override
+	 * @used-by \Df\Core\Settings::v()
+	 * @return string
+	 */
+	protected function prefix() {return 'dfe_customer/address/';}
+
+	/** @return $this */
+	public static function s() {static $r; return $r ? $r : $r = df_o(__CLASS__);}
+}
