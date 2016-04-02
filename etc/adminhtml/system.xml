@@ -65,6 +65,13 @@
 				>
 					<label>Telephone</label>
 					<source_model>Magento\Config\Model\Config\Source\Nooptreq</source_model>
+<!--
+	2016-04-01
+	Эта backend_model сама обновляет поля is_required и is_visible у свойства
+	(причём эти поля находятся в разных таблицах).
+	Код опции должен соответствовать коду свойства.
+-->
+					<backend_model>Magento\Customer\Model\Config\Backend\Show\Customer</backend_model>
 					<comment><![CDATA[]]></comment>
 				</field>
 			</group>
