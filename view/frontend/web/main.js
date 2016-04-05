@@ -4,6 +4,7 @@ define([
 ], function($) {return (
 	/**
 	 * @param {Object} config
+	 * @param {String[]} config.countries
 	 * @param {String} config.telephone
 	 * @param {String} config.utils
 	 * @returns void
@@ -48,6 +49,20 @@ define([
 			placeholder: '+7 (___) ___-____'
 			,selectOnFocus: true
 		});*/
-		$telephoneInput.intlTelInput({utilsScript: config.utils});
+		debugger;
+		$telephoneInput.intlTelInput({
+			geoIpLookup: function(callback) {
+				$.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+					var countryCode = (resp && resp.country) ? resp.country : "";
+					callback(countryCode);
+				});
+			}
+			,initialCountry: 'auto'
+			,onlyCountries: config.countries
+			,preferredCountries: []
+			,nationalMode: false
+			,separateDialCode: false
+			,utilsScript: config.utils
+		});
 	});
 });
