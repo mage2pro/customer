@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<config
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd"
+>
+	<!--
+		2016-04-04
+		Цель плагина — изменение валидации телефона.
+		https://mage2.pro/t/1133
+	-->
+	<type name='Magento\Customer\Model\Address\AbstractAddress'>
+		<plugin
+			name='Dfe\Customer\Plugin\Customer\Model\Address\AbstractAddress'
+			type='Dfe\Customer\Plugin\Customer\Model\Address\AbstractAddress'
+		/>
+	</type>
+	<type name='Magento\Customer\Model\ResourceModel\AddressRepository'>
+		<plugin
+			name='Dfe\Customer\Plugin\Customer\Model\ResourceModel\AddressRepository'
+			type='Dfe\Customer\Plugin\Customer\Model\ResourceModel\AddressRepository'
+		/>
+	</type>
+	<type name='Magento\Sales\Model\Order\Address\Validator'>
+		<plugin
+			name='Dfe\Customer\Plugin\Sales\Model\Order\Address\Validator'
+			type='Dfe\Customer\Plugin\Sales\Model\Order\Address\Validator'
+		/>
+	</type>
+</config>

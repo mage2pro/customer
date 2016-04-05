@@ -24,14 +24,22 @@ define([
 		 * @type {jQuery} HTMLDivElement
 		 */
 		var $telephone = $('.telephone', $form);
-		!config.telephone
+		if (!config.telephone) {
 			// 2016-04-01
 			// Недостаточно просто скрыть поле: надо его удалить,
 			// чтобы форма не отсылала его на сервер.
-			? $telephone.remove()
+			$telephone.remove();
+		}
+		else {
+			/** @type {Boolean} */
 			// 2016-04-01
 			// https://github.com/magento/magento2/blob/6ea7d2d/app/code/Magento/Config/Model/Config/Source/Nooptreq.php#L16-L18
-			: $telephone.toggleClass('required', 'req' === config.telephone)
-		;
+			var isRequired = 'req' === config.telephone;
+			$telephone.toggleClass('required', isRequired);
+			if (!isRequired) {
+				// 2016-04-04
+				$('input', $telephone).removeAttr('aria-required');
+			}
+		}
 	});
 });
