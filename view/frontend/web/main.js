@@ -1,10 +1,11 @@
 // 2016-04-01
 define([
-	'jquery'
+	'jquery', 'Df_Core/Telephone'
 ], function($) {return (
 	/**
 	 * @param {Object} config
 	 * @param {String} config.telephone
+	 * @param {String} config.utils
 	 * @returns void
 	 * http://stackoverflow.com/a/6460748
 	 * https://code.google.com/p/jsdoc-toolkit/wiki/TagParam
@@ -23,23 +24,30 @@ define([
 		 * in a customer account's «Add New Address» form? https://mage2.pro/t/1048
 		 * @type {jQuery} HTMLDivElement
 		 */
-		var $telephone = $('.telephone', $form);
+		var $telephoneContainer = $('.telephone', $form);
+		/** @type {jQuery} HTMLInputElement */
+		var $telephoneInput = $('input', $telephoneContainer);
 		if (!config.telephone) {
 			// 2016-04-01
 			// Недостаточно просто скрыть поле: надо его удалить,
 			// чтобы форма не отсылала его на сервер.
-			$telephone.remove();
+			$telephoneContainer.remove();
 		}
 		else {
 			/** @type {Boolean} */
 			// 2016-04-01
 			// https://github.com/magento/magento2/blob/6ea7d2d/app/code/Magento/Config/Model/Config/Source/Nooptreq.php#L16-L18
 			var isRequired = 'req' === config.telephone;
-			$telephone.toggleClass('required', isRequired);
+			$telephoneContainer.toggleClass('required', isRequired);
 			if (!isRequired) {
 				// 2016-04-04
-				$('input', $telephone).removeAttr('aria-required');
+				$telephoneInput.removeAttr('aria-required');
 			}
 		}
+		/*$telephoneInput.mask('(000) 000-0000', {
+			placeholder: '+7 (___) ___-____'
+			,selectOnFocus: true
+		});*/
+		$telephoneInput.intlTelInput({utilsScript: config.utils});
 	});
 });

@@ -12,6 +12,7 @@ class Block extends AbstractBlock {
 	protected function _toHtml() {
 		return df_x_magento_init('Dfe_Customer/main', [
 			'telephone' => SA::s()->telephone()
-		]);
+			,'utils' => df_asset_create(df_asset_name('Df_Core::lib/Telephone/js/utils.js'))->getUrl()
+		]) . df_link_inline(df_asset_name('Df_Core::lib/Telephone/css/main.css'));
 	}
 }
