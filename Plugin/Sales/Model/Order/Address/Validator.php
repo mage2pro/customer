@@ -18,11 +18,7 @@ class Validator extends Sb {
 	 * @return void
 	 */
 	public function beforeValidate(Sb $sb, Address $address) {
-		/** @var Customer $customer */
-		$customer = df_customer_get($address->getCustomerId());
-		/** @var Store $store */
-		$store = $customer->getStore();
-		if (!SA::s()->isTelephoneRequired($store)) {
+		if (!SA::s()->isTelephoneRequired(df_address_store($address))) {
 			unset($sb->required['telephone']);
 		}
 		else {
