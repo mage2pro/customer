@@ -30,6 +30,6 @@ class Address extends \Df\Core\Settings {
 	 */
 	protected function prefix() {return 'dfe_customer/address/';}
 
-	/** @return $this */
+	/** @return self */
 	public static function s() {static $r; return $r ? $r : $r = df_o(__CLASS__);}
 }
