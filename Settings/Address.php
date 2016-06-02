@@ -1,13 +1,13 @@
 <?php
 namespace Dfe\Customer\Settings;
 use Dfe\Customer\Settings\Common as SC;
-use Magento\Framework\App\ScopeInterface;
+use Magento\Framework\App\ScopeInterface as S;
 class Address extends \Df\Core\Settings {
 	/**
 	 * 2016-04-04
 	 * «Mage2.PRO» → «Customer» → «Address» → «Telephone»
 	 * @see \Magento\Config\Model\Config\Source\Nooptreq
-	 * @param null|string|int|ScopeInterface $scope [optional]
+	 * @param null|string|int|S $scope [optional]
 	 * @return bool
 	 */
 	public function isTelephoneRequired($scope = null) {
@@ -18,7 +18,7 @@ class Address extends \Df\Core\Settings {
 	 * 2016-04-01
 	 * «Mage2.PRO» → «Customer» → «Address» → «Telephone»
 	 * @see \Magento\Config\Model\Config\Source\Nooptreq
-	 * @param null|string|int|ScopeInterface $scope [optional]
+	 * @param null|string|int|S $scope [optional]
 	 * @return string
 	 */
 	public function telephone($scope = null) {return $this->v(__FUNCTION__, $scope);}
