@@ -49,7 +49,6 @@ define([
 			placeholder: '+7 (___) ___-____'
 			,selectOnFocus: true
 		});*/
-		debugger;
 		$telephoneInput.intlTelInput({
 			geoIpLookup: function(callback) {
 				$.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
