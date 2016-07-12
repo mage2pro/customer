@@ -2,6 +2,7 @@
 namespace Dfe\Customer\Settings;
 use Dfe\Customer\Settings\Common as SC;
 use Magento\Framework\App\ScopeInterface as S;
+/** @method static Address s() */
 class Address extends \Df\Core\Settings {
 	/**
 	 * 2016-04-04
@@ -29,7 +30,4 @@ class Address extends \Df\Core\Settings {
 	 * @return string
 	 */
 	protected function prefix() {return 'dfe_customer/address/';}
-
-	/** @return self */
-	public static function s() {static $r; return $r ? $r : $r = df_o(__CLASS__);}
 }

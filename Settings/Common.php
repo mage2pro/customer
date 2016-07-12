@@ -1,6 +1,7 @@
 <?php
 namespace Dfe\Customer\Settings;
 use Magento\Framework\App\ScopeInterface as S;
+/** @method static Common s() */
 class Common extends \Df\Core\Settings {
 	/**
 	 * 2016-04-01
@@ -16,7 +17,4 @@ class Common extends \Df\Core\Settings {
 	 * @return string
 	 */
 	protected function prefix() {return 'dfe_customer/common/';}
-
-	/** @return self */
-	public static function s() {static $r; return $r ? $r : $r = df_o(__CLASS__);}
 }
