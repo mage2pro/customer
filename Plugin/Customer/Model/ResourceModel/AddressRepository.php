@@ -49,8 +49,8 @@ class AddressRepository {
 				throw $e;
 			}
 			$addressM->save();
-			// Clean up the customer registry since the Address save has a
-			// side effect on customer : \Magento\Customer\Model\ResourceModel\Address::_afterSave
+			// Clean up the customer registry since the Address save has side effect on customer:
+			// \Magento\Customer\Model\ResourceModel\Address::_afterSave
 			df_customer_registry()->remove($address->getCustomerId());
 			df_address_registry()->push($addressM);
 			$customer->getAddressesCollection()->clear();
