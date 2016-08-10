@@ -22,7 +22,7 @@ class Address extends \Df\Core\Settings {
 	 * @param null|string|int|S $scope [optional]
 	 * @return string
 	 */
-	public function telephone($scope = null) {return $this->v(__FUNCTION__, $scope);}
+	public function telephone($scope = null) {return $this->v(null, $scope);}
 
 	/**
 	 * @override
