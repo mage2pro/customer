@@ -13,7 +13,9 @@ class Block extends AbstractBlock {
 		return df_x_magento_init('Dfe_Customer/main', [
 			'countries' => df_country_codes_allowed()
 			,'telephone' => SA::s()->telephone()
-			,'utils' => df_asset_create(df_asset_name('Df_Core::lib/Telephone/js/utils.js'))->getUrl()
-		]) . df_link_inline(df_asset_name('Df_Core::lib/Telephone/css/main.css'));
+			,'utils' => df_asset_create(df_asset_name(df_asset_third_party(
+				'Telephone/js/utils.js'
+			)))->getUrl()
+		]) . df_link_inline(df_asset_name(df_asset_third_party('Telephone/css/main.css')));
 	}
 }
