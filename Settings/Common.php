@@ -2,12 +2,12 @@
 namespace Dfe\Customer\Settings;
 use Magento\Framework\App\ScopeInterface as S;
 /** @method static Common s() */
-class Common extends \Df\Core\Settings {
+class Common extends \Df\Config\Settings {
 	/**
 	 * @override
-	 * @see \Df\Core\Settings::prefix()
-	 * @used-by \Df\Core\Settings::v()
+	 * @see \Df\Config\Settings::prefix()
+	 * @used-by \Df\Config\Settings::v()
 	 * @return string
 	 */
-	protected function prefix() {return 'dfe_customer/common/';}
+	protected function prefix() {return 'dfe_customer/common';}
 }
