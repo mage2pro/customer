@@ -3,7 +3,7 @@ namespace Dfe\Customer\Settings;
 use Dfe\Customer\Settings\Common as SC;
 use Magento\Framework\App\ScopeInterface as S;
 /** @method static Address s() */
-class Address extends \Df\Config\Settings {
+final class Address extends \Df\Config\Settings {
 	/**
 	 * 2016-04-04
 	 * «Mage2.PRO» → «Customer» → «Address» → «Telephone»
