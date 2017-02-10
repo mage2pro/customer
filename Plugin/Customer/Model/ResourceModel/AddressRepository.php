@@ -22,7 +22,7 @@ class AddressRepository {
 	 */
 	public function aroundSave(Sb $sb, \Closure $proceed, AI $address) {
 		/** @var Customer $customer */
-		$customer = df_customer_get($address->getCustomerId());
+		$customer = df_customer($address->getCustomerId());
 		/** @var Store $store */
 		$store = $customer->getStore();
 		/** @var AI $result */
