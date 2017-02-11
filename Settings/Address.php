@@ -11,7 +11,7 @@ final class Address extends \Df\Config\Settings {
 	 * @param null|string|int|S $scope [optional]
 	 * @return bool
 	 */
-	public function isTelephoneRequired($scope = null) {
+	function isTelephoneRequired($scope = null) {
 		return !SC::s()->enable($scope) || 'req' === $this->telephone($scope);
 	}
 
@@ -22,7 +22,7 @@ final class Address extends \Df\Config\Settings {
 	 * @param null|string|int|S $scope [optional]
 	 * @return string
 	 */
-	public function telephone($scope = null) {return $this->v(null, $scope);}
+	function telephone($scope = null) {return $this->v(null, $scope);}
 
 	/**
 	 * @override

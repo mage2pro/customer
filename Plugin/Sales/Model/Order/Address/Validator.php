@@ -7,7 +7,7 @@ use Magento\Sales\Model\Order\Address\Validator as Sb;
 use Magento\Store\Model\Store;
 class Validator extends Sb {
 	/** 2016-04-05 */
-	public function __construct() {}
+	function __construct() {}
 
 	/**
 	 * 2016-04-05
@@ -17,7 +17,7 @@ class Validator extends Sb {
 	 * @param Address $address
 	 * @return void
 	 */
-	public function beforeValidate(Sb $sb, Address $address) {
+	function beforeValidate(Sb $sb, Address $address) {
 		if (!SA::s()->isTelephoneRequired(df_address_store($address))) {
 			unset($sb->required['telephone']);
 		}

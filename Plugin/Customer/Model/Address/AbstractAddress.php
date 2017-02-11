@@ -13,7 +13,7 @@ class AbstractAddress {
 	 * @param bool|string[] $result
 	 * @return bool|string[]
 	 */
-	public function afterValidate(Sb $sb, $result) {return
+	function afterValidate(Sb $sb, $result) {return
 		SA::s()->isTelephoneRequired(df_address_store($sb)) || !is_array($result)
 		? $result
 		: (df_clean($result, [__('Please enter the phone number.')]) ?: true)

@@ -20,7 +20,7 @@ class AddressRepository {
 	 * @return AI
 	 * @throws InputException
 	 */
-	public function aroundSave(Sb $sb, \Closure $proceed, AI $address) {
+	function aroundSave(Sb $sb, \Closure $proceed, AI $address) {
 		/** @var Customer $customer */
 		$customer = df_customer($address->getCustomerId());
 		/** @var Store $store */
