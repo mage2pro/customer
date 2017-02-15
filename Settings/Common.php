@@ -1,6 +1,5 @@
 <?php
 namespace Dfe\Customer\Settings;
-use Magento\Framework\App\ScopeInterface as S;
 /** @method static Common s() */
 final class Common extends \Df\Config\Settings {
 	/**
