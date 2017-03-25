@@ -11,6 +11,7 @@ class Block extends AbstractBlock {
 	 * 2016-04-01
 	 * @override
 	 * @see AbstractBlock::_toHtml()
+	 * @used-by \Magento\Framework\View\Element\AbstractBlock::toHtml()
 	 * @return string
 	 */
 	final protected function _toHtml() {return
