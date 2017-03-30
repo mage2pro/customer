@@ -15,19 +15,19 @@ class AddressRepository {
 	 * https://mage2.pro/t/1133
 	 * @see \Magento\Customer\Model\ResourceModel\AddressRepository::save()
 	 * @param Sb $sb
-	 * @param \Closure $proceed
+	 * @param \Closure $f
 	 * @param AI|CDA $address
 	 * @return AI
 	 * @throws InputException
 	 */
-	function aroundSave(Sb $sb, \Closure $proceed, AI $address) {
+	function aroundSave(Sb $sb, \Closure $f, AI $address) {
 		/** @var Customer $customer */
 		$customer = df_customer($address->getCustomerId());
 		/** @var Store $store */
 		$store = $customer->getStore();
 		/** @var AI $result */
 		if (SA::s()->isTelephoneRequired($store)) {
-			$result = $proceed($address);
+			$result = $f($address);
 		}
 		else {
 			/** @var Address $addressM */
