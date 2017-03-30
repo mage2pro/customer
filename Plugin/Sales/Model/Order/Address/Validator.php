@@ -15,7 +15,6 @@ class Validator extends Sb {
 	 * @see \Magento\Sales\Model\Order\Address\Validator::validate()
 	 * @param Sb $sb
 	 * @param Address $address
-	 * @return void
 	 */
 	function beforeValidate(Sb $sb, Address $address) {
 		if (!SA::s()->isTelephoneRequired(df_address_store($address))) {
