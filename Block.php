@@ -12,7 +12,7 @@ class Block extends AbstractBlock {
 	 * @used-by \Magento\Framework\View\Element\AbstractBlock::toHtml()
 	 * @return string
 	 */
-	final protected function _toHtml() {return df_x_magento_init(__CLASS__, 'main', [
+	final protected function _toHtml() {return df_js(__CLASS__, 'main', [
 		'countries' => df_country_codes_allowed()
 		,'telephone' => SA::s()->telephone()
 		,'utils' => df_asset_create(df_asset_name(df_asset_third_party('Telephone/js/utils.js')))->getUrl()
