@@ -2,7 +2,6 @@
 namespace Dfe\Customer\Plugin\Customer\Model\Address;
 use Dfe\Customer\Settings\Address as SA;
 use Magento\Customer\Model\Address\AbstractAddress as Sb;
-use Magento\Framework\Phrase;
 class AbstractAddress {
 	/**
 	 * 2016-04-04
