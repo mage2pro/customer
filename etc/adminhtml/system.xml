@@ -7,7 +7,6 @@
 		<section
 			id='dfe_customer'
 			translate='label'
-			type='text'
 			showInDefault='1'
 			showInWebsite='1'
 			showInStore='1'
@@ -23,7 +22,6 @@ https://mage2.pro/t/1062
 			<group
 				id='common'
 				translate='label'
-				type='text'
 				sortOrder='1'
 				showInDefault='1'
 				showInWebsite='1'
@@ -47,7 +45,6 @@ https://mage2.pro/t/1062
 			<group
 				id='address'
 				translate='label'
-				type='text'
 				sortOrder='2'
 				showInDefault='1'
 				showInWebsite='1'
