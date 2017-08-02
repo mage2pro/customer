@@ -1,15 +1,28 @@
 <?php
 namespace Dfe\Customer;
 use Dfe\Customer\Settings\Address as SA;
-use Magento\Framework\View\Element\AbstractBlock;
+use Magento\Framework\View\Element\AbstractBlock as _P;
 // 2016-04-01
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
-class Block extends AbstractBlock {
+class Block extends _P {
 	/**
 	 * 2016-04-01
 	 * @override
-	 * @see AbstractBlock::_toHtml()
-	 * @used-by \Magento\Framework\View\Element\AbstractBlock::toHtml()
+	 * @see _P::_toHtml()
+	 *		$html = $this->_loadCache();
+	 *		if ($html === false) {
+	 *			if ($this->hasData('translate_inline')) {
+	 *				$this->inlineTranslation->suspend($this->getData('translate_inline'));
+	 *			}
+	 *			$this->_beforeToHtml();
+	 *			$html = $this->_toHtml();
+	 *			$this->_saveCache($html);
+	 *			if ($this->hasData('translate_inline')) {
+	 *				$this->inlineTranslation->resume();
+	 *			}
+	 *		}
+	 *		$html = $this->_afterToHtml($html);
+	 * https://github.com/magento/magento2/blob/2.2.0-RC1.6/lib/internal/Magento/Framework/View/Element/AbstractBlock.php#L642-L683
 	 * @return string
 	 */
 	final protected function _toHtml() {return df_js(__CLASS__, 'main', [
