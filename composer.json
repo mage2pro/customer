@@ -1,6 +1,6 @@
 {
 	"name": "mage2pro/customer"
-	,"version": "1.0.6"
+	,"version": "1.0.7"
 	,"description": "The «Advanced Customer Settings» extension."
 	,"type": "magento2-module"
 	,"homepage": "https://github.com/mage2pro/customer"
@@ -11,6 +11,6 @@
 		"homepage": "https://mage2.pro/users/dmitry_fedyuk",
 		"role": "Developer"
 	}]
-	,"require": {"mage2pro/core": ">=2.5.13"}
+	,"require": {"mage2pro/core": ">=2.11.23", "mage2pro/phone": ">=1.0.1"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\Customer\\": ""}}
 }

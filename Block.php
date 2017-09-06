@@ -29,6 +29,6 @@ class Block extends _P {
 	final protected function _toHtml() {return df_js(__CLASS__, 'main', [
 		'countries' => df_country_codes_allowed()
 		,'telephone' => SA::s()->telephone()
-		,'utils' => df_asset_create(df_asset_name(df_asset_third_party('Telephone/js/utils.js')))->getUrl()
-	]) . df_link_inline(df_asset_name(df_asset_third_party('Telephone/css/main.css')));}
+		,'utils' => df_asset_create(df_asset_name('Df_Phone::lib/js/utils.js'))->getUrl()
+	]) . df_link_inline(df_asset_name('Df_Phone::lib/css/main.css'));}
 }
