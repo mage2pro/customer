@@ -48,7 +48,7 @@ define(['jquery', 'Df_Core/Telephone'], function($) {return (
 		});*/
 		$telephoneInput.intlTelInput({
 			geoIpLookup: function(callback) {
-				$.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+				$.get('http://ipinfo.io', function() {}, "jsonp").always(function(resp) {
 					var countryCode = (resp && resp.country) ? resp.country : '';
 					callback(countryCode);
 				});

@@ -2,12 +2,10 @@
 	  xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'>
 	<update handle='customer_account'/>
 	<body>
-		<!--
-			2016-04-05
-			Сначала дорабатывал шаблон посредством JavaScript,
-			но при этом поля мерцают: например: поле для телефона сначала видимо,
-			а потом скрывается JavaScript'ом, и это некрасиво смотрится.
-		-->
+<!-- 2016-04-05
+Сначала дорабатывал шаблон посредством JavaScript,
+но при этом поля мерцают: например: поле для телефона сначала видимо,
+а потом скрывается JavaScript'ом, и это некрасиво смотрится. -->
 		<referenceBlock name='customer_address_edit'>
 			<arguments>
 				<argument name='template' xsi:type='string'>Dfe_Customer::address/edit.phtml</argument>

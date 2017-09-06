@@ -19,11 +19,8 @@
             </div>
         </div>
         <?php
-            /** @var string|null $phoneS */
-            $phoneS = \Dfe\Customer\Settings\Address::s()->telephone();
-            if ($phoneS) {
-                /** @var string $phoneClass */
-                $phoneClass = 'req' === $phoneS ? 'required' : '';
+            if ($phoneS = \Dfe\Customer\Settings\Address::s()->telephone()) { /** @var string|null $phoneS */
+                $phoneClass = 'req' === $phoneS ? 'required' : ''; /** @var string $phoneClass */
                 ?>
                     <div class="field telephone <?= $phoneClass; ?>">
                         <label class="label" for="telephone"><span><?= __('Phone Number') ?></span></label>
