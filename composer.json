@@ -3,7 +3,7 @@
 	,"version": "1.0.6"
 	,"description": "The «Advanced Customer Settings» extension."
 	,"type": "magento2-module"
-	,"homepage": "https://mage2.pro/t/1062"
+	,"homepage": "https://github.com/mage2pro/customer"
 	,"license": "proprietary"
 	,"authors": [{
 		"name": "Dmitry Fedyuk",
