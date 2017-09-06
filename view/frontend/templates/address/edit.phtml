@@ -20,9 +20,8 @@
         </div>
         <?php
             if ($phoneS = \Dfe\Customer\Settings\Address::s()->telephone()) { /** @var string|null $phoneS */
-                $phoneClass = 'req' === $phoneS ? 'required' : ''; /** @var string $phoneClass */
                 ?>
-                    <div class="field telephone <?= $phoneClass; ?>">
+                    <div class="field telephone <?= 'req' === $phoneS ? 'required' : '' ?>">
                         <label class="label" for="telephone"><span><?= __('Phone Number') ?></span></label>
                         <div class="control">
                             <input type="text" name="telephone" value="<?= $block->escapeHtml($block->getAddress()->getTelephone()) ?>" title="<?= __('Phone Number') ?>" class="input-text <?= $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('telephone') ?>" id="telephone">
