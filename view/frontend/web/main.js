@@ -1,7 +1,5 @@
 // 2016-04-01
-define([
-	'jquery', 'Df_Core/Telephone'
-], function($) {return (
+define(['jquery', 'Df_Core/Telephone'], function($) {return (
 	/**
 	 * @param {Object} config
 	 * @param {String[]} config.countries
@@ -30,8 +28,7 @@ define([
 		var $telephoneInput = $('input', $telephoneContainer);
 		if (!config.telephone) {
 			// 2016-04-01
-			// Недостаточно просто скрыть поле: надо его удалить,
-			// чтобы форма не отсылала его на сервер.
+			// Недостаточно просто скрыть поле: надо его удалить, чтобы форма не отсылала его на сервер.
 			$telephoneContainer.remove();
 		}
 		else {
@@ -52,14 +49,14 @@ define([
 		$telephoneInput.intlTelInput({
 			geoIpLookup: function(callback) {
 				$.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-					var countryCode = (resp && resp.country) ? resp.country : "";
+					var countryCode = (resp && resp.country) ? resp.country : '';
 					callback(countryCode);
 				});
 			}
 			,initialCountry: 'auto'
+			,nationalMode: false
 			,onlyCountries: config.countries
 			,preferredCountries: []
-			,nationalMode: false
 			,separateDialCode: false
 			,utilsScript: config.utils
 		});

@@ -10,9 +10,7 @@ use Magento\Framework\Exception\InputException;
 use Magento\Store\Model\Store;
 class AddressRepository {
 	/**
-	 * 2016-04-04
-	 * Цель плагина — изменение валидации телефона.
-	 * https://mage2.pro/t/1133
+	 * 2016-04-04 Цель плагина — изменение валидации телефона. https://mage2.pro/t/1133
 	 * @see \Magento\Customer\Model\ResourceModel\AddressRepository::save()
 	 * @param Sb $sb
 	 * @param \Closure $f
@@ -21,17 +19,14 @@ class AddressRepository {
 	 * @throws InputException
 	 */
 	function aroundSave(Sb $sb, \Closure $f, AI $address) {
-		/** @var Customer $customer */
-		$customer = df_customer($address->getCustomerId());
-		/** @var Store $store */
-		$store = $customer->getStore();
+		$customer = df_customer($address->getCustomerId()); /** @var Customer $customer */
+		$store = $customer->getStore(); /** @var Store $store */
 		/** @var AI $result */
 		if (SA::s()->isTelephoneRequired($store)) {
 			$result = $f($address);
 		}
 		else {
-			/** @var Address $addressM */
-			$addressM = null;
+			$addressM = null; /** @var Address $addressM */
 			if ($address->getId()) {
 				$addressM = df_address_registry()->retrieve($address->getId());
 			}
@@ -43,8 +38,7 @@ class AddressRepository {
 				$addressM->updateData($address);
 				$addressM->setCustomer($customer);
 			}
-			/** @var InputException $e */
-			$e = $this->_validate($addressM);
+			$e = $this->_validate($addressM); /** @var InputException $e */
 			if ($e->wasErrorAdded()) {
 				throw $e;
 			}
@@ -67,11 +61,9 @@ class AddressRepository {
 	 * @return InputException
 	 */
 	private function _validate(Address $a) {
-		/** @var InputException $result */
-		$result = new InputException();
+		$result = new InputException(); /** @var InputException $result */
 		if (!$a->getShouldIgnoreValidation()) {
-			/** @var string[] $fields */
-			$fields = ['firstname', 'lastname', 'street', 'city', 'country_id'];
+			$fields = ['firstname', 'lastname', 'street', 'city', 'country_id']; /** @var string[] $fields */
 			// 2016-04-05
 			// Валидацию телефона не проводим,
 			// потому что сюда мы попадаем только когда телефон необязателен.

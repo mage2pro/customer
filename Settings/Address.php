@@ -11,9 +11,9 @@ final class Address extends \Df\Config\Settings {
 	 * @param null|string|int|S $scope [optional]
 	 * @return bool
 	 */
-	function isTelephoneRequired($scope = null) {
-		return !SC::s()->enable($scope) || 'req' === $this->telephone($scope);
-	}
+	function isTelephoneRequired($scope = null) {return
+		!SC::s()->enable($scope) || 'req' === $this->telephone($scope)
+	;}
 
 	/**
 	 * 2016-04-01
