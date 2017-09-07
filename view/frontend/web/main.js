@@ -58,7 +58,7 @@ define(['jquery', 'Df_Phone/lib/js/main'], function($) {return (
 			,onlyCountries: config.countries
 			,preferredCountries: []
 			,separateDialCode: false
-			,utilsScript: config.utils
 		});
+		$.fn.intlTelInput.loadUtils(config.utils);
 	});
 });
