@@ -141,9 +141,9 @@
                 "regionInputId": "#region",
                 "postcodeId": "#zip",
                 "form": "#form-validate",
-                "regionJson": <?= $this->helper('Magento\Directory\Helper\Data')->getRegionJson() ?>,
+                "regionJson": <?= df_directory()->getRegionJson() ?>,
                 "defaultRegion": "<?= $block->getRegionId() ?>",
-                "countriesWithOptionalZip": <?= $this->helper('Magento\Directory\Helper\Data')->getCountriesWithOptionalZip(true) ?>
+                "countriesWithOptionalZip": <?= df_directory()->getCountriesWithOptionalZip(true) ?>
             }
         }
     }

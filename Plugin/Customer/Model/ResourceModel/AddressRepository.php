@@ -67,10 +67,10 @@ class AddressRepository {
 			// 2016-04-05
 			// Валидацию телефона не проводим,
 			// потому что сюда мы попадаем только когда телефон необязателен.
-			if (!in_array($a->getCountryId(), df_directory_h()->getCountriesWithOptionalZip())) {
+			if (!in_array($a->getCountryId(), df_directory()->getCountriesWithOptionalZip())) {
 				$fields[]= 'postcode';
 			}
-			if (df_directory_h()->isRegionRequired($a->getCountryId())) {
+			if (df_directory()->isRegionRequired($a->getCountryId())) {
 				$fields[]= 'region' . ($a->getCountryModel()->getRegionCollection()->count() ? '_id' : '');
 			}
 			array_map(function($field) use($a, $result) {
