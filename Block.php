@@ -26,7 +26,7 @@ class Block extends _P {
 	 * https://github.com/magento/magento2/blob/2.2.0/lib/internal/Magento/Framework/View/Element/AbstractBlock.php#L643-L689
 	 * @return string
 	 */
-	final protected function _toHtml() {return df_js(__CLASS__, 'main', [
+	final protected function _toHtml() {return df_js(__CLASS__, null, [
 		'countries' => df_country_codes_allowed()
 		,'telephone' => SA::s()->telephone()
 		,'utils' => df_asset_create('Df_Phone::lib/js/utils.js')->getUrl()
