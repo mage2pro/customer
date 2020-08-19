@@ -43,8 +43,8 @@ class AddressRepository {
 				throw $e;
 			}
 			$addressM->save();
-			// Clean up the customer registry since the Address save has side effect on customer:
-			// \Magento\Customer\Model\ResourceModel\Address::_afterSave
+			# Clean up the customer registry since the Address save has side effect on customer:
+			# \Magento\Customer\Model\ResourceModel\Address::_afterSave
 			df_customer_registry()->remove($address->getCustomerId());
 			df_address_registry()->push($addressM);
 			$customer->getAddressesCollection()->clear();
@@ -64,9 +64,9 @@ class AddressRepository {
 		$result = new InputException(); /** @var InputException $result */
 		if (!$a->getShouldIgnoreValidation()) {
 			$fields = ['firstname', 'lastname', 'street', 'city', 'country_id']; /** @var string[] $fields */
-			// 2016-04-05
-			// Валидацию телефона не проводим,
-			// потому что сюда мы попадаем только когда телефон необязателен.
+			# 2016-04-05
+			# Валидацию телефона не проводим,
+			# потому что сюда мы попадаем только когда телефон необязателен.
 			if (!in_array($a->getCountryId(), df_directory()->getCountriesWithOptionalZip())) {
 				$fields[]= 'postcode';
 			}

@@ -2,7 +2,7 @@
 namespace Dfe\Customer;
 use Dfe\Customer\Settings\Address as SA;
 use Magento\Framework\View\Element\AbstractBlock as _P;
-// 2016-04-01
+# 2016-04-01
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
 class Block extends _P {
 	/**
