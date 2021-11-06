@@ -7,20 +7,18 @@ final class Address extends \Df\Config\Settings {
 	/**
 	 * 2016-04-04 «Mage2.PRO» → «Customer» → «Address» → «Telephone»
 	 * @see \Magento\Config\Model\Config\Source\Nooptreq
-	 * @param null|string|int|S $scope [optional]
+	 * @param null|string|int|S $s [optional]
 	 * @return bool
 	 */
-	function isTelephoneRequired($scope = null) {return
-		!SC::s()->enable($scope) || 'req' === $this->telephone($scope)
-	;}
+	function isTelephoneRequired($s = null) {return !SC::s()->enable($s) || 'req' === $this->telephone($s);}
 
 	/**
 	 * 2016-04-01 «Mage2.PRO» → «Customer» → «Address» → «Telephone»
 	 * @see \Magento\Config\Model\Config\Source\Nooptreq
-	 * @param null|string|int|S $scope [optional]
+	 * @param null|string|int|S $s [optional]
 	 * @return string
 	 */
-	function telephone($scope = null) {return $this->v(null, $scope);}
+	function telephone($s = null) {return $this->v(null, $s);}
 
 	/**
 	 * @override
