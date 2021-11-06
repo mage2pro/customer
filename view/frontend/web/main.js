@@ -27,8 +27,7 @@ define(['jquery', 'Df_Phone/lib/js/main'], function($) {return (
 		/** @type {jQuery} HTMLInputElement */
 		var $telephoneInput = $('input', $telephoneContainer);
 		if (!config.telephone) {
-			// 2016-04-01
-			// Недостаточно просто скрыть поле: надо его удалить, чтобы форма не отсылала его на сервер.
+			// 2016-04-01 Недостаточно просто скрыть поле: надо его удалить, чтобы форма не отсылала его на сервер.
 			$telephoneContainer.remove();
 		}
 		else {
