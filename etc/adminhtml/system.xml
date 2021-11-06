@@ -12,10 +12,7 @@
 			<tab>_df</tab>
 			<label>Customer</label>
 			<class>separator-top</class>
-<!--
-2016-03-31
-https://mage2.pro/t/1062
--->
+<!-- 2016-03-31 https://mage2.pro/t/1062 -->
 			<resource>Dfe_Customer::config</resource>
 			<group
 				id='common'
@@ -63,8 +60,7 @@ https://mage2.pro/t/1062
 однако телефон является свойством как покупателя, так и адреса покупателя.
 Поэтому надо использовать модель Magento\Customer\Model\Config\Backend\Show\Address,
 которая унаследована от Customer: она обновит сразу обе сущености:
-https://github.com/magento/magento2/blob/ab051bf/app/code/Magento/Customer/Model/Config/Backend/Show/Address.php
--->
+https://github.com/magento/magento2/blob/ab051bf/app/code/Magento/Customer/Model/Config/Backend/Show/Address.php -->
 					<backend_model>Magento\Customer\Model\Config\Backend\Show\Address</backend_model>
 					<comment><![CDATA[]]></comment>
 				</field>
