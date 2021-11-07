@@ -4,9 +4,7 @@ use Dfe\Customer\Settings\Address as SA;
 use Magento\Customer\Model\Address\AbstractAddress as Sb;
 class AbstractAddress {
 	/**
-	 * 2016-04-04
-	 * Цель плагина — изменение валидации телефона.
-	 * https://mage2.pro/t/1133
+	 * 2016-04-04 Цель плагина — изменение валидации телефона: https://mage2.pro/t/1133
 	 * @see \Magento\Customer\Model\Address\AbstractAddress::validate()
 	 * @param Sb $sb
 	 * @param bool|string[] $r

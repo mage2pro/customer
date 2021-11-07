@@ -14,43 +14,43 @@ class AddressRepository {
 	 * @see \Magento\Customer\Model\ResourceModel\AddressRepository::save()
 	 * @param Sb $sb
 	 * @param \Closure $f
-	 * @param AI|CDA $address
+	 * @param AI|CDA $a
 	 * @return AI
 	 * @throws InputException
 	 */
-	function aroundSave(Sb $sb, \Closure $f, AI $address) {
-		$customer = df_customer($address->getCustomerId()); /** @var Customer $customer */
-		$store = $customer->getStore(); /** @var Store $store */
-		/** @var AI $result */
+	function aroundSave(Sb $sb, \Closure $f, AI $a) {
+		$c = df_customer($a->getCustomerId()); /** @var Customer $c */
+		$store = $c->getStore(); /** @var Store $store */
+		/** @var AI $r */
 		if (SA::s()->isTelephoneRequired($store)) {
-			$result = $f($address);
+			$r = $f($a);
 		}
 		else {
-			$addressM = null; /** @var Address $addressM */
-			if ($address->getId()) {
-				$addressM = df_address_registry()->retrieve($address->getId());
+			$aM = null; /** @var Address $aM */
+			if ($a->getId()) {
+				$aM = df_address_registry()->retrieve($a->getId());
 			}
-			if ($addressM) {
-				$addressM->updateData($address);
+			if ($aM) {
+				$aM->updateData($a);
 			}
 			else {
-				$addressM = df_new_om(Address::class);
-				$addressM->updateData($address);
-				$addressM->setCustomer($customer);
+				$aM = df_new_om(Address::class);
+				$aM->updateData($a);
+				$aM->setCustomer($c);
 			}
-			$e = $this->_validate($addressM); /** @var InputException $e */
+			$e = $this->_validate($aM); /** @var InputException $e */
 			if ($e->wasErrorAdded()) {
 				throw $e;
 			}
-			$addressM->save();
+			$aM->save();
 			# Clean up the customer registry since the Address save has side effect on customer:
 			# \Magento\Customer\Model\ResourceModel\Address::_afterSave
-			df_customer_registry()->remove($address->getCustomerId());
-			df_address_registry()->push($addressM);
-			$customer->getAddressesCollection()->clear();
-			$result = $addressM->getDataModel();
+			df_customer_registry()->remove($a->getCustomerId());
+			df_address_registry()->push($aM);
+			$c->getAddressesCollection()->clear();
+			$r = $aM->getDataModel();
 		}
-		return $result;
+		return $r;
 	}
 
 	/**
@@ -61,24 +61,22 @@ class AddressRepository {
 	 * @return InputException
 	 */
 	private function _validate(Address $a) {
-		$result = new InputException(); /** @var InputException $result */
+		$r = new InputException(); /** @var InputException $r */
 		if (!$a->getShouldIgnoreValidation()) {
 			$fields = ['firstname', 'lastname', 'street', 'city', 'country_id']; /** @var string[] $fields */
-			# 2016-04-05
-			# Валидацию телефона не проводим,
-			# потому что сюда мы попадаем только когда телефон необязателен.
+			# 2016-04-05 Валидацию телефона не проводим, потому что сюда мы попадаем только когда телефон необязателен.
 			if (!in_array($a->getCountryId(), df_directory()->getCountriesWithOptionalZip())) {
 				$fields[]= 'postcode';
 			}
 			if (df_directory()->isRegionRequired($a->getCountryId())) {
 				$fields[]= 'region' . ($a->getCountryModel()->getRegionCollection()->count() ? '_id' : '');
 			}
-			array_map(function($field) use($a, $result) {
+			array_map(function($field) use($a, $r) {
 				if (!\Zend_Validate::is($a->getDataUsingMethod($field), 'NotEmpty')) {
-					$result->addError(__(InputException::REQUIRED_FIELD, ['fieldName' => $field]));
+					$r->addError(__(InputException::REQUIRED_FIELD, ['fieldName' => $field]));
 				}
 			}, $fields);
 		}
-		return $result;
+		return $r;
 	}
 }
