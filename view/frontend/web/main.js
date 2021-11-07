@@ -1,15 +1,15 @@
 // 2016-04-01
 define(['jquery', 'Df_Phone/lib/js/main'], function($) {return (
 	/**
-	 * @param {Object} config
-	 * @param {String[]} config.countries
-	 * @param {String} config.telephone
-	 * @param {String} config.utils
+	 * @param {Object} cfg
+	 * @param {String[]} cfg.countries
+	 * @param {String} cfg.telephone
+	 * @param {String} cfg.utils
 	 * @returns void
 	 * http://stackoverflow.com/a/6460748
 	 * https://code.google.com/p/jsdoc-toolkit/wiki/TagParam
 	 */
-	function(config) {
+	function(cfg) {
 		/**
 		 * 2016-04-01
 		 * https://github.com/magento/magento2/blob/ce68a6d/app/code/Magento/Customer/view/frontend/templates/address/edit.phtml#L17
@@ -26,7 +26,7 @@ define(['jquery', 'Df_Phone/lib/js/main'], function($) {return (
 		var $telephoneContainer = $('.telephone', $form);
 		/** @type {jQuery} HTMLInputElement */
 		var $telephoneInput = $('input', $telephoneContainer);
-		if (!config.telephone) {
+		if (!cfg.telephone) {
 			// 2016-04-01 Недостаточно просто скрыть поле: надо его удалить, чтобы форма не отсылала его на сервер.
 			$telephoneContainer.remove();
 		}
@@ -34,7 +34,7 @@ define(['jquery', 'Df_Phone/lib/js/main'], function($) {return (
 			/** @type {Boolean} */
 			// 2016-04-01
 			// https://github.com/magento/magento2/blob/6ea7d2d/app/code/Magento/Config/Model/Config/Source/Nooptreq.php#L16-L18
-			var isRequired = 'req' === config.telephone;
+			var isRequired = 'req' === cfg.telephone;
 			$telephoneContainer.toggleClass('required', isRequired);
 			if (!isRequired) {
 				// 2016-04-04
@@ -54,10 +54,10 @@ define(['jquery', 'Df_Phone/lib/js/main'], function($) {return (
 			}
 			,initialCountry: 'auto'
 			,nationalMode: false
-			,onlyCountries: config.countries
+			,onlyCountries: cfg.countries
 			,preferredCountries: []
 			,separateDialCode: false
 		});
-		$.fn.intlTelInput.loadUtils(config.utils);
+		$.fn.intlTelInput.loadUtils(cfg.utils);
 	});
 });
