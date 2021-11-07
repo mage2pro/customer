@@ -31,14 +31,12 @@ define(['jquery', 'Df_Phone/lib/js/main'], function($) {return (
 			$telephoneContainer.remove();
 		}
 		else {
-			/** @type {Boolean} */
 			// 2016-04-01
 			// https://github.com/magento/magento2/blob/6ea7d2d/app/code/Magento/Config/Model/Config/Source/Nooptreq.php#L16-L18
-			var isRequired = 'req' === cfg.telephone;
+			/** @type {Boolean} */ var isRequired = 'req' === cfg.telephone;
 			$telephoneContainer.toggleClass('required', isRequired);
 			if (!isRequired) {
-				// 2016-04-04
-				$telephoneInput.removeAttr('aria-required');
+				$telephoneInput.removeAttr('aria-required'); // 2016-04-04
 			}
 		}
 		/*$telephoneInput.mask('(000) 000-0000', {
