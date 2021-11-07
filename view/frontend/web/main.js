@@ -44,11 +44,8 @@ define(['jquery', 'Df_Phone/lib/js/main'], function($) {return (
 			,selectOnFocus: true
 		});*/
 		$telephoneInput.intlTelInput({
-			geoIpLookup: function(callback) {
-				$.get('//ipinfo.io', function() {}, 'jsonp').always(function(resp) {
-					var countryCode = (resp && resp.country) ? resp.country : '';
-					callback(countryCode);
-				});
+			geoIpLookup: function(cb) {
+				$.get('//ipinfo.io', function() {}, 'jsonp').always(function(r) {cb(r && r.country ? r.country : '');});
 			}
 			,initialCountry: 'auto'
 			,nationalMode: false
