@@ -11,10 +11,10 @@ class Validator extends Sb {
 	 * 2016-04-05 Цель плагина — изменение валидации телефона.
 	 * @see \Magento\Sales\Model\Order\Address\Validator::validate()
 	 * @param Sb $sb
-	 * @param Address $address
+	 * @param Address $a
 	 */
-	function beforeValidate(Sb $sb, Address $address) {
-		if (!SA::s()->isTelephoneRequired(df_address_store($address))) {
+	function beforeValidate(Sb $sb, Address $a) {
+		if (!SA::s()->isTelephoneRequired(df_address_store($a))) {
 			unset($sb->required['telephone']);
 		}
 		else {
