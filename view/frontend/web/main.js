@@ -45,6 +45,10 @@ define(['jquery', 'Df_Phone/lib/js/main'], function($) {return (
 		});*/
 		$telephoneInput.intlTelInput({
 			geoIpLookup: function(cb) {
+				// 2017-09-07
+				// «Note that the callback must still be called in the event of an error,
+				// hence the use of always in this example.
+				// @todo Store the result in a cookie to avoid repeat lookups!»
 				$.get('//ipinfo.io', function() {}, 'jsonp').always(function(r) {cb(r && r.country ? r.country : '');});
 			}
 			,initialCountry: 'auto'
