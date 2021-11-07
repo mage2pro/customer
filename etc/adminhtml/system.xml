@@ -49,17 +49,14 @@
 				>
 					<label>Telephone</label>
 					<source_model>Magento\Config\Model\Config\Source\Nooptreq</source_model>
-<!--
-2016-04-01
-Эта backend_model сама обновляет поля is_required и is_visible у свойства
-(причём эти поля находятся в разных таблицах).
+<!-- 2016-04-01
+Эта backend_model сама обновляет поля is_required и is_visible у свойства (причём эти поля находятся в разных таблицах).
 Код опции должен соответствовать коду свойства.
-
 2016-04-04
 Сначала я использовал Magento\Customer\Model\Config\Backend\Show\Customer,
 однако телефон является свойством как покупателя, так и адреса покупателя.
 Поэтому надо использовать модель Magento\Customer\Model\Config\Backend\Show\Address,
-которая унаследована от Customer: она обновит сразу обе сущености:
+которая унаследована от Customer: она обновит сразу обе сущности:
 https://github.com/magento/magento2/blob/ab051bf/app/code/Magento/Customer/Model/Config/Backend/Show/Address.php -->
 					<backend_model>Magento\Customer\Model\Config\Backend\Show\Address</backend_model>
 					<comment><![CDATA[]]></comment>
