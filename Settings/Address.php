@@ -24,7 +24,6 @@ final class Address extends \Df\Config\Settings {
 	 * @override
 	 * @see \Df\Config\Settings::prefix()
 	 * @used-by \Df\Config\Settings::v()
-	 * @return string
 	 */
-	protected function prefix() {return 'dfe_customer/address';}
+	protected function prefix():string {return 'dfe_customer/address';}
 }
