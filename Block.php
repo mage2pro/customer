@@ -28,6 +28,6 @@ class Block extends _P {
 	final protected function _toHtml():string {return df_js(__CLASS__, '', [
 		'countries' => df_country_codes_allowed()
 		,'telephone' => SA::s()->telephone()
-		,'utils' => df_asset_create('Df_Phone::lib/js/utils.js')->getUrl()
-	]) . df_link_inline('Df_Phone::lib/css/main.css');}
+		,'utils' => df_asset_create('Dfe_Phone::lib/js/utils.js')->getUrl()
+	]) . df_link_inline('Dfe_Phone::lib/css/main.css');}
 }

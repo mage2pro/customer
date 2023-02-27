@@ -1,5 +1,5 @@
 // 2016-04-01
-define(['jquery', 'Df_Phone/lib/js/main'], function($) {return (
+define(['jquery', 'Dfe_Phone/lib/js/main'], function($) {return (
 	/**
 	 * @param {Object} cfg
 	 * @param {String[]} cfg.countries
