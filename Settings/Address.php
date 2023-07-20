@@ -18,7 +18,7 @@ final class Address extends \Df\Config\Settings {
 	 * @param null|string|int|S $s [optional]
 	 * @return string
 	 */
-	function telephone($s = null) {return $this->v(null, $s);}
+	function telephone($s = null) {return $this->v('', $s);}
 
 	/**
 	 * @override
